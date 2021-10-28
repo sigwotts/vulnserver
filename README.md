@@ -54,9 +54,9 @@ s_string_variable("FUZZ");
 generic_send_tcp 10.10.136.133 9999 command.spk 0 0 
 ```
 ### After running the script, We can see that the Vulnserver got crashed
-```
-image 1
-```
+
+![image 1](https://github.com/sigwotts/vulnserver/blob/main/images/generic_send_tcp-result%20(1).png)
+
 
 ## Here we get to know that TRUN is vulnurable
 
