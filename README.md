@@ -65,9 +65,10 @@ generic_send_tcp 10.10.136.133 9999 command.spk 0 0
 -> The starting value = 019FF208
 -> The end value where it got crashed = 019FFBF0
 ```
-```
-image 2,3
-```
+
+![Starting value](https://github.com/sigwotts/vulnserver/blob/main/images/Starting%20value(2).png)
+![final value where it got crashed](https://github.com/sigwotts/vulnserver/blob/main/images/Value%20where%20it%20crashed(3).png)
+
 
 ### Now we have the value of staring and the end, Now lets take the help of python to see the distance between these two values, So after running python
 ```
@@ -98,9 +99,9 @@ s.close()
 
 ```
 ### And "/.:/" is a special character we are going to add the spiker has told us this also a sweet character we are going to add in our script, look in the image
-```
-IMAGE4
-```
+
+![Special character we have to add with TRUN in the script i.e "/.:/"](https://github.com/sigwotts/vulnserver/blob/main/images/Special%20character%20we%20add%20on%20script(4).png)
+
 ## Now, Lets create a cyclic pattern
 ```
 /usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 2536 
@@ -140,9 +141,9 @@ s.close()
 ```
 EIP 386F4337
 ```
-```
-image 5 
-```
+
+![Here we finf the value of EIP](https://github.com/sigwotts/vulnserver/blob/main/images/EIP%20Value(5).png)
+
 ### Now lets find out where our EIP is located (So we can control/rewrite that as "BBBB"), for that we are going to use "msf-patter_offset"
 ```
  msf-pattern_offset -l 2536 -q 386F4337                          
@@ -178,7 +179,7 @@ s.close()
 ### And by using this script we are controlling the EIP i.e this script will firstly fill the values before the EIP by "A" and the EIP overwritten by "BBBB" and the rest of the query is written by "C"
 ### So after running the script, We controlled the EIP as 42424242 which are BBBB shown below
 ```
-image 6
+![Controlling EIP by "BBBB" i.e 42424242](https://github.com/sigwotts/vulnserver/blob/main/images/Controlled%20EIP%20(6).png)
 ```
 
 ## Now we use mona.py
@@ -202,10 +203,7 @@ Program Files(x86) > Immunity Inc > Immunity Debugger > PyCommands > mona.py
 ```
 
 ## Here are the result 
-```
-image 7 
-```
-
+![Mona esp value](https://github.com/sigwotts/vulnserver/blob/main/images/mona%20esp%20value(7).png)
 
 ## Time to modify the script
 ```
@@ -267,13 +265,12 @@ s.send(payload)
 s.close()
 ```
 ### After running this script again our Vulnserver.exe got crashed and when we take a look we can see that we find a series 
-```
-image 8
-```
+![We find the series](https://github.com/sigwotts/vulnserver/blob/main/images/series%20of%20binary%20(8).png)
+
 ### then we have to follow the dump to find the bad characters in the pattern
-```
-image 9,10
-```
+
+![The pattern in which we have to follow the dump](https://github.com/sigwotts/vulnserver/blob/main/images/Follow%20dump%20(9).png)
+![Area where we find bad characters in the pattern](https://github.com/sigwotts/vulnserver/blob/main/images/10.png)
 
 ### Now we get to know there are no bad characters in the vulnserver TRUN except the null byte i.e "\x00"
 ### Its time to add NOP in the script (NOP -> No Operation)
@@ -366,3 +363,4 @@ msf6 exploit(multi/handler) > run
 ```
 
 ## And boom we are inside the vulnserver 
+# <3 by sigwotts
