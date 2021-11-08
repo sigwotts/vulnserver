@@ -267,6 +267,7 @@ s.close()
 ### After running this script again our Vulnserver.exe got crashed and when we take a look we can see that we find a series 
 ![We find the series](https://github.com/sigwotts/vulnserver/blob/main/images/series%20of%20binary%20(8).png)
 
+## Click on the ESP value and then click on follow the dump
 ### then we have to follow the dump to find the bad characters in the pattern
 
 ![The pattern in which we have to follow the dump](https://github.com/sigwotts/vulnserver/blob/main/images/Follow%20dump%20(9).png)
